@@ -1,0 +1,3 @@
+include ':nativelib'
+include ':app'
+rootProject.name = "xlog_example"

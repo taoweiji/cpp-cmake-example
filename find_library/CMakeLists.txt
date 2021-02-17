@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(find_library_example)
+include_directories(jsoncpp/include)
+add_executable(${PROJECT_NAME} main.cpp)
+find_library(jsoncpp_lib NAMES jsoncpp PATHS ./jsoncpp)
+target_link_libraries(${PROJECT_NAME} ${jsoncpp_lib})

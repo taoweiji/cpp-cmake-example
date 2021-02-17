@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.17)
+project(includes_full_code)
+set(CMAKE_CXX_STANDARD 14)
+include_directories(./jsoncpp/include)
+set(jsoncpp jsoncpp/json_reader.cpp jsoncpp/json_writer.cpp jsoncpp/json_value.cpp)
+add_executable(includes_full_code main.cpp ${jsoncpp})

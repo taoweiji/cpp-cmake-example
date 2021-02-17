@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.17)
+project(subdirectory)
+set(CMAKE_CXX_STANDARD 14)
+add_subdirectory(project1)
+add_subdirectory(project2)
+add_subdirectory(project3)
+add_subdirectory(test)
