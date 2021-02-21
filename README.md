@@ -51,7 +51,7 @@ int main() {
     return 0;
 }
 ```
-完整代码：[includes_full_code_exmaple](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/includes_full_code)
+完整代码：[includes_full_code_exmaple](https://github.com/taoweiji/cpp-cmake-example/tree/master/includes_full_code)
 
 
 ## 2. 内部工程依赖
@@ -98,10 +98,10 @@ add_executable(${PROJECT_NAME} main.cpp)
 # 链接子工程
 target_link_libraries(${PROJECT_NAME} jsoncpp)
 ```
-完整代码：[multi_cmakelists_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/multi_cmakelists)
+完整代码：[multi_cmakelists_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/multi_cmakelists)
 
 
-> 这种方式除了引入第三方依赖，通常我们也会用这种方式来管理项目中的各个子模块，每个模块都有独立的CMakeLists.txt文件，从而实现子工程的单独引用，源码请看 [subdirectory_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/subdirectory)。
+> 这种方式除了引入第三方依赖，通常我们也会用这种方式来管理项目中的各个子模块，每个模块都有独立的CMakeLists.txt文件，从而实现子工程的单独引用，源码请看 [subdirectory_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/subdirectory)。
 
 
 
@@ -136,10 +136,10 @@ add_executable(${PROJECT_NAME} main.cpp)
 find_library(jsoncpp_lib NAMES jsoncpp PATHS ./jsoncpp)
 target_link_libraries(${PROJECT_NAME} ${jsoncpp_lib})
 ```
-完整代码：[find_library_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/find_library)
+完整代码：[find_library_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/find_library)
 
 
-> 这种方式在 Android 开发很常见，比如我们引入xlog实现日志打印就可以通过这种方式实现，代码参考 [xlog_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/xlog)。
+> 这种方式在 Android 开发很常见，比如我们引入xlog实现日志打印就可以通过这种方式实现，代码参考 [xlog_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/xlog)。
 
 
 ## 4. FetchContent
@@ -167,7 +167,7 @@ target_link_libraries(${PROJECT_NAME} jsoncpp_lib)
 建议通过压缩包的方式引入，因为直接引入git仓库可能会很慢。
 
 
-完整代码：[fetch_content_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/fetch_content)
+完整代码：[fetch_content_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/fetch_content)
 
 
 > Android SDK 的 CMake 的默认版本是3.10.2，并不支持FetchContent，如果想在Android开发中使用需要安装3.11.0以上版本的cmake，为了降低团队的协同成本，并不建议在 Android 工程使用，建议使用内部工程的方式引入。
@@ -205,7 +205,7 @@ target_link_libraries(${PROJECT_NAME} jsoncpp_lib)
 这种方式的细节不需要我们自己处理，都交给了CPM解决，这种方式也同样不建议在 Android 工程使用。
 
 
-完整代码：[cpm_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/cpm)
+完整代码：[cpm_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/cpm)
 ## 6. find_package
 [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) 是 cmake 3.19.0 版本开始提供的功能，可以非常方便添加，这种方式主要是从本机上查找已经安装好的库，需要提前通过命令安装。
 ##### 安装jsoncpp
@@ -238,7 +238,7 @@ find_package(jsoncpp REQUIRED)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} jsoncpp_lib)
 ```
-##### 完整代码：[find_package_example](https://github.com/taoweiji/cpp-dependency-management-example/tree/master/find_package)
+##### 完整代码：[find_package_example](https://github.com/taoweiji/cpp-cmake-example/tree/master/find_package)
 
 
 > 使用这种方式是需要有个大前提，电脑必须已经安装好了对应的库，否则无法正常工作，这种方式只有在特定的场景下使用，比如调用电脑的opencv、openssl。
