@@ -7,13 +7,6 @@ include(FetchContent)
 # 建议使用压缩包的方式依赖，下载速度更快
 FetchContent_Declare(jsoncpp
         URL https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz)
-
-FetchContent_GetProperties(jsoncpp)
-if(NOT jsoncpp_POPULATED)
-    FetchContent_Populate(jsoncpp)
-    set(JSONCPP_WITH_TESTS OFF)
-    add_subdirectory(${jsoncpp_SOURCE_DIR} ${jsoncpp_BINARY_DIR})
-endif()
-
+FetchContent_MakeAvailable(jsoncpp)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} jsoncpp_lib)
