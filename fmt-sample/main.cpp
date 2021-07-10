@@ -48,3 +48,8 @@ TEST(SuiteName, TestName7) {
                "Hello, {}!\n", "世界");
 }
 
+TEST(SuiteName, TestName8) {
+    fmt::print("Hello, {name}! The answer is {number}. Goodbye, {name}.",
+               fmt::arg("name", "World"), fmt::arg("number", 42));
+}
+
