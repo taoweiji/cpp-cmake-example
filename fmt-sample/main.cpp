@@ -53,3 +53,8 @@ TEST(SuiteName, TestName8) {
                fmt::arg("name", "World"), fmt::arg("number", 42));
 }
 
+TEST(SuiteName, TestName9) {
+    std::string s = fmt::format("The answer is {:.2f}", 1.12345678);
+    ASSERT_EQ("The answer is 1.12", s);
+}
+
